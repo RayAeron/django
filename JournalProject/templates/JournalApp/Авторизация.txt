@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<title>Авторизация</title>
+<link rel="stylesheet" href="/Свойства.css">
+<meta charset="utf-8">
+</head>
+<body>
+<p><h1>Авторизация</h1></p>
+<section>
+<form action="/" method="">
+<p><h2>Логин</h2></p>
+<input type="text" placeholder="Логин"> 
+<p><h2>Пароль</h2></p>
+<input type="password" placeholder="Пароль">
+<button>Войти</button></p>
+</form>
+</section>
+</body>
+</html>

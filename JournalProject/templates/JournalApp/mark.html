@@ -1,14 +1,13 @@
     {% extends 'base.html' %}
     {% load crispy_forms_tags %}
-  <div class="p-3 mb-2 bg-dark text-white">
+  <div class="text-light bg-dark">
     {% block content %}
     
     {% if form %}
 
-    <p>Выберите группу</p>
+    <p class="text-light bg-dark">Выберите группу</p>
 
-
-    <select class="form-select bg-secondary" aria-label="Default select example" aria-placeholder="Группа">
+    <select class="text-light bg-dark" aria-label="Default select example" aria-placeholder="Группа">
         {% for group in groups %}
         <option value="{{group.id}}">{{group.name}}</option>
         {% endfor %}

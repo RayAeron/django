@@ -51,7 +51,7 @@ class Discipline(models.Model):
 
 class Mark(models.Model):
     date = models.DateField(verbose_name='Дата занятия')
-
+    
     MARK_CHOISES = (
         (5, 'Отлично'),
         (4, 'Хорошо'),

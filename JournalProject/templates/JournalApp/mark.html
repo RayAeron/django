@@ -1,0 +1,74 @@
+    {% extends 'base.html' %}
+    {% load crispy_forms_tags %}
+  <div class="p-3 mb-2 bg-dark text-white">
+    {% block content %}
+    
+    {% if form %}
+
+    <p>Выберите группу</p>
+
+
+    <select class="form-select bg-secondary" aria-label="Default select example" aria-placeholder="Группа">
+        {% for group in groups %}
+        <option value="{{group.id}}">{{group.name}}</option>
+        {% endfor %}
+      </select>
+   
+
+    <form method='POST' action='{% url "add_mark_url" %}'>
+    {% csrf_token %}
+    <div class="input-group">
+      {{form | crispy}}
+        <button id='add' type="submit" class="btn btn-outline-light mt-4">Поставить</button>
+      
+    {% if form.errors %}
+      {% for field in form %}
+      <p> {{field.error}} </p>
+      {% endfor %}
+    {% endif %}
+    </div>
+    </form>
+    {% endif %}
+  
+
+
+
+
+<table class="table table-dark table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Группа</th>
+      <th scope="col">Студент</th>
+      <th scope="col">Оценка</th>
+      <th scope="col">Дата</th>
+      <th scope="col">Дисциплина</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for mark in marks %}
+    <tr>
+      <th scope="row">{{ mark.id }}</th>
+      <td>{{ mark.fk_student.fk_group }}</td>
+      <td>
+
+         {% if mark.fk_student.first_name %}
+            {{mark.fk_student.first_name}}
+        {% else %}
+            {{mark.fk_student}}
+        {% endif %}  
+       </td>
+      <td>{{ mark.mark }}</td>
+      <td>{{ mark.date }}</td>
+      <td>{{ mark.fk_discipline.name }}</td>
+      {% if user.is_staff %}
+      <td>Изменить</td>
+      {% endif %}
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+  </div>
+
+{% endblock content %}

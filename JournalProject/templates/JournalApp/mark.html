@@ -16,7 +16,7 @@
 
     <form method='POST' action='{% url "add_mark_url" %}'>
     {% csrf_token %}
-    <div class="input-group">
+    <div class="input-group text-light bg-dark">
       {{form | crispy}}
         <button id='add' type="submit" class="btn btn-outline-light mt-4">Поставить</button>
       

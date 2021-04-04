@@ -79,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
         'NAME': 'Journal',
-        'HOST': 'rayaeron',
+        'HOST': 'rayaeronserver.database.windows.net',
         'USER': 'RayAeron',
-        'PASSWORD': 'qwerty',
+        'PASSWORD': 'Ray2013ray',
         'OPTIONS': {
             'driver': 'SQL Server Native Client 11.0'
         }

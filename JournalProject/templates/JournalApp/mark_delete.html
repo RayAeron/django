@@ -1,0 +1,14 @@
+    {% extends 'base.html' %}
+    {% load crispy_forms_tags %}
+  <div class="text-light bg-dark">
+    {% block content %}
+
+    <p class="text-light bg-dark">Вы действительно хотите удалить оценку? Студент: {{mark.fk_student}}; Дисциплина: {{mark.fk_discipline}}; Оценка: {{mark.mark}}</p>
+    <form action='' method='POST'>
+    {% csrf_token %}
+    <input class='btn btn-success' type='submit' value='Удалить'>
+    <input class='btn btn-danger' value='Отмена' href='{% url "prepod_url" %}'>
+    </form>
+
+
+    {% endblock content %}

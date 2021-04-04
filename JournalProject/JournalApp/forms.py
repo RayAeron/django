@@ -25,6 +25,19 @@ class MarkForm(forms.ModelForm):
             'date' : forms.DateInput(attrs={'class':'form-control', 'type': 'date'}),
         }
 
+
+class MarkForm(forms.ModelForm):
+    class Meta:
+        model = Mark
+        fields = ['fk_discipline','fk_student','mark',  'date',  ]
+
+        widgets =  {
+            'fk_discipline': forms.Select(attrs={'class':'form-select bg-secondary'}),
+            'fk_student' : forms.Select(attrs={'class':'form-select bg-secondary'}),
+            'mark' : forms.Select(attrs={'class':'form-select bg-secondary'}),
+            'date' : forms.DateInput(attrs={'class':'form-control', 'type': 'date'}),
+        }
+
 class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
